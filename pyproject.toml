@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ts-forecast"
+version = "0.1.0"
+description = ""
+authors = ["Thomas <thomas.oberliessen@googlemail.com>"]
+readme = "README.md"
+packages = [{include = "ts_forecast"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
