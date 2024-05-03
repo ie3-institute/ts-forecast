@@ -1,0 +1,188 @@
+{
+    "simona": {
+        "simulationName": "simbench-mv",
+        "time": {
+            "startDateTime": "2016-01-01 00:00:00",
+            "endDateTime": "2016-12-31 23:59:00",
+            "schedulerReadyCheckWindow": 900,
+            "stopOnFailedPowerFlow": true
+        },
+        "input": {
+            "primary": {
+                "csvParams": {
+                    "directoryPath": "/Users/thomas/coding/python/dsse-benchmark/data/1-MV-urban--2-no_sw/input/default",
+                    "csvSep": ",",
+                    "isHierarchic": false,
+                    "timePattern": "yyyy-MM-dd'T'HH:mm[.S[S][S]]'Z'"
+                }
+            },
+            "grid": {
+                "datasource": {
+                    "id": "csv",
+                    "csvParams": {
+                        "directoryPath": "/Users/thomas/coding/python/dsse-benchmark/data/1-MV-urban--2-no_sw/input/default",
+                        "csvSep": ",",
+                        "isHierarchic": false
+                    }
+                }
+            },
+            "weather": {
+                "datasource": {
+                    "scheme": "icon",
+                    "sampleParams": {
+                        "use": true
+                    },
+                    "coordinateSource": {
+                        "sampleParams": {
+                            "use": true
+                        }
+                    }
+                }
+            }
+        },
+        "output": {
+            "base": {
+                "dir": "/Users/thomas/coding/python/dsse-benchmark/data/1-MV-urban--2-no_sw/output/default/debug",
+                "addTimestampToOutputDir": true
+            },
+            "sink": {
+                "csv": {
+                    "fileFormat": ".csv",
+                    "filePrefix": "",
+                    "fileSuffix": ""
+                }
+            },
+            "grid": {
+                "notifier": "grid",
+                "nodes": true,
+                "lines": true,
+                "switches": true,
+                "transformers2w": true,
+                "transformers3w": false
+            },
+            "participant": {
+                "defaultConfig": {
+                    "notifier": "default",
+                    "powerRequestReply": false,
+                    "simulationResult": true
+                },
+                "individualConfigs": []
+            }
+        },
+        "runtime": {
+            "selected_subgrids": [],
+            "selected_volt_lvls": [],
+            "participant": {
+                "load": {
+                    "defaultConfig": {
+                        "calculateMissingReactivePowerWithModel": false,
+                        "uuids": [
+                            "default"
+                        ],
+                        "scaling": 1.0,
+                        "modelBehaviour": "fix",
+                        "reference": "power"
+                    },
+                    "individualConfigs": []
+                },
+                "fixedFeedIn": {
+                    "defaultConfig": {
+                        "calculateMissingReactivePowerWithModel": false,
+                        "uuids": [
+                            "default"
+                        ],
+                        "scaling": 1.0
+                    },
+                    "individualConfigs": []
+                },
+                "pv": {
+                    "defaultConfig": {
+                        "calculateMissingReactivePowerWithModel": false,
+                        "uuids": [
+                            "default"
+                        ],
+                        "scaling": 1.0
+                    },
+                    "individualConfigs": []
+                },
+                "wec": {
+                    "defaultConfig": {
+                        "calculateMissingReactivePowerWithModel": false,
+                        "uuids": [
+                            "default"
+                        ],
+                        "scaling": 1.0
+                    },
+                    "individualConfigs": []
+                },
+                "evcs": {
+                    "defaultConfig": {
+                        "calculateMissingReactivePowerWithModel": false,
+                        "uuids": [
+                            "default"
+                        ],
+                        "scaling": 1.0
+                    },
+                    "individualConfigs": []
+                }
+            }
+        },
+        "event": {
+            "listener": []
+        },
+        "gridConfig": {
+            "refSystems": [
+                {
+                    "sNom": "100 kVA",
+                    "vNom": "0.4 kV",
+                    "voltLvls": [
+                        {
+                            "id": "NS",
+                            "vNom": "0.4 kV"
+                        }
+                    ]
+                },
+                {
+                    "sNom": "60 MVA",
+                    "vNom": "10 kV",
+                    "voltLvls": [
+                        {
+                            "id": "MS",
+                            "vNom": "10 kV"
+                        }
+                    ]
+                },
+                {
+                    "sNom": "600 MVA",
+                    "vNom": "110 kV",
+                    "voltLvls": [
+                        {
+                            "id": "HS",
+                            "vNom": "110 kV"
+                        }
+                    ]
+                },
+                {
+                    "sNom": "1000 MVA",
+                    "vNom": "380 kV",
+                    "voltLvls": [
+                        {
+                            "id": "HoeS",
+                            "vNom": "380 kV"
+                        }
+                    ]
+                }
+            ]
+        },
+        "powerflow": {
+            "maxSweepPowerDeviation": 1e-05,
+            "newtonraphson": {
+                "epsilon": [
+                    1e-12
+                ],
+                "iterations": 50
+            },
+            "resolution": "3600s"
+        }
+    }
+}
