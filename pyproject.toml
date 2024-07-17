@@ -10,6 +10,7 @@ packages = [{ include = "ts_forecast" }]
 python = "<3.12,>3.11"
 jupyter = "^1.0.0"
 pypsdm = "0.0.3"
+pypsdml = { git = "https://github.com/ie3-institute/pypsdml.git", branch = "main" }
 
 
 [build-system]
