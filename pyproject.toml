@@ -7,9 +7,9 @@ readme = "README.md"
 packages = [{ include = "ts_forecast" }]
 
 [tool.poetry.dependencies]
-python = "<3.13,>3.11"
+python = ">3.12,<3.13"
 jupyter = "^1.0.0"
-pypsdm = "^0.0.3"
+pypsdm = "^0.0.6"
 pypsdml = { git = "https://github.com/ie3-institute/pypsdml.git", branch = "main" }
 
 
